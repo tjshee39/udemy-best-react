@@ -1,4 +1,4 @@
-import '../css/Card.css';
+import '../../css/Card.css';
 
 const Card = (props) => {
     // Card를 호출한 위치에서 설정한 className 가져옴
