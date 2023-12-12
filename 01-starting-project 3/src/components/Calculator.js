@@ -65,8 +65,6 @@ const Calculator = (props) => {
                 'duration': duration
             };
 
-            console.log("props inputData", inputData)
-
             props.calculator(inputData);
         }
 
@@ -74,7 +72,7 @@ const Calculator = (props) => {
     };
 
     return (
-        <form className="form">
+        <form className="form" onSubmit={submitHandler}>
             <div className="input-group">
                 <p>
                     <label htmlFor="current-savings">Current Savings ($)</label>
@@ -101,7 +99,7 @@ const Calculator = (props) => {
                 <button type="reset" className="buttonAlt" onClick={resetClickHandler}>
                     Reset
                 </button>
-                <button type="submit" className="button" onClick={submitHandler}>
+                <button type="submit" className="button">
                     Calculate
                 </button>
             </p>

@@ -11,8 +11,6 @@ const App = () => {
     // Should be triggered when form is submitted
     // You might not directly want to bind it to the submit event on the form though..
 
-    console.log("userInput:", userInput)
-
     let currentSavings = +userInput['current-savings']; // feel free to change the shape of this input object!
     const yearlyContribution = +userInput['yearly-contribution']; // as mentioned: feel free to change the shape...
     const expectedReturn = +userInput['expected-return'] / 100;
