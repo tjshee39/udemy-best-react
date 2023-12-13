@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
-import logo from './assets/investment-calculator-logo.png';
-import Calculator from './components/Calculator';
+import Header from './components/Header';
+import UserInput from './components/UserInput';
 import ResultTable from './components/ResultTable';
 
 const App = () => {
-  const [yearlyDatas, setYearlyDatas] = useState([]); // per-year results
+  const [yearlyDatas, setYearlyDatas] = useState(null); // per-year results
+  const [curSaving, setCurSaving] = useState(null);
 
   const calculateHandler = (userInput) => {
     // Should be triggered when form is submitted
@@ -15,6 +16,8 @@ const App = () => {
     const yearlyContribution = +userInput['yearly-contribution']; // as mentioned: feel free to change the shape...
     const expectedReturn = +userInput['expected-return'] / 100;
     const duration = +userInput['duration'];
+
+    setCurSaving(currentSavings);
 
     let yearlyData = [];
     // The below code calculates yearly results (total savings, interest etc)
@@ -37,22 +40,20 @@ const App = () => {
 
   return (
     <div>
-      <header className="header">
-        <img src={logo} alt="logo" />
-        <h1>Investment Calculator</h1>
-      </header>
+      <Header />
 
-      <Calculator calculator={calculateHandler}/>
+      <UserInput calculator={calculateHandler} />
 
       {/* Todo: Show below table conditionally (only once result data is available) */}
       {/* Show fallback text if no data is available */}
 
-      {yearlyDatas && yearlyDatas.map(data => (
-        <ResultTable 
-          key={data.year}
-          yearData={data}
+      {!yearlyDatas && <p style={{textAlign: 'center'}}>No investment calculated yet.</p>}
+      {yearlyDatas &&
+        <ResultTable
+          data={yearlyDatas}
+          initialInvestment={curSaving}
         />
-      ))}
+      }
     </div>
   );
 }

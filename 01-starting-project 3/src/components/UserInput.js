@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import '../css/Calculator.css';
+import '../css/UserInput.css';
 
-const Calculator = (props) => {
+const UserInput = (props) => {
     const [curSaving, setCurSaving] = useState('');
     const [yearly, setYearly] = useState('');
     const [expInterest, setExpInterst] = useState('');
@@ -67,8 +67,6 @@ const Calculator = (props) => {
 
             props.calculator(inputData);
         }
-
-        // props.calculator(enteredValue);
     };
 
     return (
@@ -107,4 +105,4 @@ const Calculator = (props) => {
     );
 }
 
-export default Calculator;
+export default UserInput;
