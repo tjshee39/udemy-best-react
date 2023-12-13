@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import '../../css/AddUser.css';
+import Wrapper from '../helpers/Wrapper';
 import ErrorModal from '../common/ErrorModal';
 import Card from '../common/Card';
 import Button from '../common/Button';
@@ -20,8 +21,6 @@ const AddUser = props => {
 
             return;
         }
-
-        console.log(enteredAge)
 
         if (+enteredAge.trim() < 1) {
             setError({
@@ -45,11 +44,12 @@ const AddUser = props => {
     };
 
     const errorHandler = () => {
+        console.log("confirm")
         setError(null);
     };
 
     return (
-        <div>
+        <Wrapper>
             {error && 
                 <ErrorModal 
                     title={error.title} 
@@ -78,7 +78,7 @@ const AddUser = props => {
                     <Button type="submit">Add User</Button>
                 </form>
             </Card>
-        </div>
+        </Wrapper>
     )
 };
 
