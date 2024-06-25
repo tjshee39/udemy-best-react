@@ -1,7 +1,7 @@
 ### 📌 1. install dependencies<br>
 
 ```bash
-$ 01-starting-project 18> npm install
+$ 01-starting-project 20> npm install
 ```
 
 ### 📌 2. create root/.env<br>
