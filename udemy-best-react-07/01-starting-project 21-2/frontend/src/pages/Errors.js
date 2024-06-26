@@ -1,16 +1,15 @@
-import { Outlet } from 'react-router-dom'
-
 import MainNavigation from '../components/MainNavigation'
 
-const Root = () => {
+const Error = () => {
   return (
     <>
       <MainNavigation />
       <main>
-        <Outlet />
+        <h1>404</h1>
+        <p>페이지를 찾을 수 없어요</p>
       </main>
     </>
   )
 }
 
-export default Root
+export default Error
