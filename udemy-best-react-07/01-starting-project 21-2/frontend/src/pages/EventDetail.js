@@ -1,4 +1,4 @@
-import { useRouteLoaderData, json } from 'react-router-dom'
+import { useRouteLoaderData, json, redirect } from 'react-router-dom'
 import EventItem from '../components/EventItem'
 
 const EventDetail = () => {
@@ -13,6 +13,7 @@ const EventDetail = () => {
 
 export default EventDetail
 
+/* 이벤트 정보 불러오기 */
 export const loader = async ({request, params}) => {
   const id = params.eventId
 
@@ -25,4 +26,18 @@ export const loader = async ({request, params}) => {
 
     return resData
   }
+}
+
+/* 이벤트 삭제 */
+export const action = async ({params, request}) => {
+  const eventId = params.eventId
+  const response = await fetch('http://localhost:8080/events/' + eventId, {
+    method: request.method
+  })
+
+  if (!response.ok) {
+    throw json({message: '삭제 중 오류가 발생하였습니다.'}, {status: 500})
+  }
+
+  return redirect('/events')
 }
