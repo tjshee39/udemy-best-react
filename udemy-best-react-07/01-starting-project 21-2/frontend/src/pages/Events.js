@@ -1,30 +1,34 @@
-import { Link } from 'react-router-dom'
+import { useLoaderData, json } from 'react-router-dom'
 import EventsList from '../components/EventsList'
 
-const DUMMY_EVENTS = [
-  {
-    id: 'e1',
-    title: 'event1',
-    date: '2024-05-01'
-  },
-  {
-    id: 'e2',
-    title: 'event2',
-    date: '2024-06-01'
-  },
-  {
-    id: 'e3',
-    title: 'event3',
-    date: '2024-07-01'
-  },
-]
-
 const Events = () => {
+  const data = useLoaderData()
+  const events = data.events
+
   return (
     <>
-      <EventsList events={DUMMY_EVENTS}/>
+      <EventsList events={events} />
     </>
   )
 }
 
 export default Events
+
+/* 이벤트 데이터 불러오기 */
+export const loader = async () => {
+  const response = await fetch('http://localhost:8080/events')
+
+  if (!response.ok) {
+    // throw new Response(
+    //   JSON.stringify({message: '데이터를 불러올 수 없습니다.'}),
+    //   {status: 500});
+
+    return json({message: '데이터를 불러올 수 없습니다.'}, {
+      status: 500,
+    })
+  } else {
+    const resData = await response.json()
+
+    return resData
+  }
+}

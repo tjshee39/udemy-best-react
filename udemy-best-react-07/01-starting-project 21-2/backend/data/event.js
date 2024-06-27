@@ -4,17 +4,17 @@ const { v4: generateId } = require('uuid')
 
 const { NotFoundError } = require('../util/errors')
 
-async const readData = () => {
+const readData = async () => {
   const data = await fs.readFile('events.json', 'utf8')
 
   return JSON.parse(data)
 }
 
-async const writeData = (data) => {
+const writeData = async (data) => {
   await fs.writeFile('events.json', JSON.stringify(data))
 }
 
-async const getAll = () => {
+const getAll = async () => {
   const storedData = await readData()
   if (!storedData.events) {
     throw new NotFoundError('Could not find any events.')
@@ -23,7 +23,7 @@ async const getAll = () => {
   return storedData.events
 }
 
-async const get = (id) => {
+const get = async (id) => {
   const storedData = await readData()
   if (!storedData.events || storedData.events.length === 0) {
     throw new NotFoundError('Could not find any events.')
@@ -37,14 +37,14 @@ async const get = (id) => {
   return event
 }
 
-async const add = (data) => {
+const add = async (data) => {
   const storedData = await readData()
   storedData.events.unshift({ ...data, id: generateId() })
 
   await writeData(storedData)
 }
 
-async const replace = (id, data) => {
+const replace = async (id, data) => {
   const storedData = await readData()
   if (!storedData.events || storedData.events.length === 0) {
     throw new NotFoundError('Could not find any events.')
@@ -60,7 +60,7 @@ async const replace = (id, data) => {
   await writeData(storedData)
 }
 
-async const remove = (id) => {
+const remove = async (id) => {
   const storedData = await readData()
   const updatedData = storedData.events.filter((ev) => ev.id !== id)
 
