@@ -7,8 +7,10 @@ import Events, { loader as eventsLoader } from '../pages/Events'
 import EventDetail, {
   loader as eventDetailLoader,
   action as deleteEventAction } from '../pages/EventDetail'
-import NewEvent, { action as newEventAction } from '../pages/NewEvent'
+import NewEvent from '../pages/NewEvent'
 import EditEvent from '../pages/EditEvent'
+import { action as manipulateEventAction } from '../components/EventForm'
+import Newsletter, { action as newsletterAction } from '../pages/Newsletter'
 import Error from '../pages/Error'
 
 const router = createBrowserRouter([
@@ -43,15 +45,21 @@ const router = createBrowserRouter([
               {
                 path: 'edit',
                 element: <EditEvent />,
+                action: manipulateEventAction
               },
             ]
           },
           {
             path: 'new',
             element: <NewEvent />,
-            action: newEventAction
+            action: manipulateEventAction
           },
         ]
+      },
+      {
+        path: 'newsletter',
+        element: <Newsletter />,
+        action: newsletterAction,
       },
     ],
   },

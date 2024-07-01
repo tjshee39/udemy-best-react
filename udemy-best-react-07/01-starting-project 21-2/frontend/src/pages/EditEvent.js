@@ -3,14 +3,11 @@ import EventForm from '../components/EventForm'
 
 const EditEvent = () => {
   const data = useRouteLoaderData('event-detail')
-  const event = data.event
 
   return (
     <>
       <p>EditEvent</p>
-      <EventForm
-        event={data.event}
-      />
+      <EventForm method="patch" event={data.event}/>
     </>
   )
 }
