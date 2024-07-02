@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import Root from '../pages/Root'
 import Home from '../pages/Home'
+import Authentication from '../pages/Authentication'
 import EventsRoot from '../pages/EventsRoot'
 import Events, { loader as eventsLoader } from '../pages/Events'
 import EventDetail, {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       {
         index: true,  // '/'와 같음
         element: <Home />,
+      },
+      {
+        path: 'auth',
+        element: <Authentication />
       },
       {
         path: 'events',  // '/'와 같음
