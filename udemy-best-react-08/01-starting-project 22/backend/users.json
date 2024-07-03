@@ -1,1 +1,14 @@
-{"users":[{"email":"test1@test.com","password":"$2a$12$xHz1FIjNfvcqF8i5iyUdi.hbTvuhY7Xxv.gTDly22Ktjh8ZLmXypi","id":"c0ca1911-33c8-44bb-8ef4-b4894e1993d6"},{"email":"test2@test.com","password":"$2a$12$PUAnE6C063ocrzK2YeQFX.GHhoRg7QZ4ujP84MLqSTYaCeesdLhm.","id":"a1f25a38-e908-425e-8673-004e089fff88"}]}
+{
+  "users": [
+    {
+      "email": "test1@test.com",
+      "password": "$2a$12$xHz1FIjNfvcqF8i5iyUdi.hbTvuhY7Xxv.gTDly22Ktjh8ZLmXypi",
+      "id": "c0ca1911-33c8-44bb-8ef4-b4894e1993d6"
+    },
+    {
+      "email": "test2@test.com",
+      "password": "$2a$12$PUAnE6C063ocrzK2YeQFX.GHhoRg7QZ4ujP84MLqSTYaCeesdLhm.",
+      "id": "a1f25a38-e908-425e-8673-004e089fff88"
+    }
+  ]
+}
