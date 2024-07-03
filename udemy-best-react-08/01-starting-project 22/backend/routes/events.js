@@ -1,7 +1,7 @@
 const express = require('express')
 
 const { getAll, get, add, replace, remove } = require('../data/event')
-onst { checkAuth } = require('../util/auth')
+const { checkAuth } = require('../util/auth')
 const {
   isValidText,
   isValidDate,
