@@ -3,3 +3,7 @@ export const getAuthToken = () => {
 
   return token
 }
+
+export const tokenLoader = () => {
+  return getAuthToken()
+}

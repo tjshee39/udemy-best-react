@@ -14,8 +14,8 @@ app.use((req, res, next) => {
   next()
 });
 
-app.use('/events', eventRoutes)
 app.use(authRoutes)
+app.use('/events', eventRoutes)
 
 app.use((error, req, res, next) => {
   const status = error.status || 500
