@@ -1,5 +1,5 @@
-const isValidText = (value) => {
-  return value && value.trim().length > 0
+const isValidText = (value, minLength = 1) => {
+  return value && value.trim().length >= minLength
 }
 
 const isValidDate = (value) => {
@@ -12,6 +12,11 @@ const isValidImageUrl = (value) => {
   return value && value.startsWith('http')
 }
 
+function isValidEmail(value) {
+  return value && value.includes('@');
+}
+
 exports.isValidText = isValidText
 exports.isValidDate = isValidDate
 exports.isValidImageUrl = isValidImageUrl
+exports.isValidEmail = isValidEmail

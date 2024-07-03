@@ -1,5 +1,9 @@
-import { useNavigate, Form, useNavigation, useActionData, json, redirect } from 'react-router-dom'
+import {
+  useNavigate, Form, useNavigation,
+  useActionData, json, redirect
+} from 'react-router-dom'
 
+import { getAuthToken } from '../util/auth'
 import classes from '../css/EventForm.module.css'
 
 const EventForm = ({ method, event }) => {
@@ -95,10 +99,12 @@ export const action = async ({request, params}) => {
     url = url + '/' + eventId
   }
 
+  const token = getAuthToken()
   const response = await fetch(url, {
     method: method,
     headers: {
       'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + token
     },
     body: JSON.stringify(eventData)
   })

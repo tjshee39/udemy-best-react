@@ -5,6 +5,7 @@ import PageContent from '../components/PageContent'
 
 const Error = () => {
   const error = useRouteError()
+  console.log('error:::::', error)
 
   let title = '오류'
   let message = '먼가 잘못됨'

@@ -1,10 +1,17 @@
+@font-face {
+  font-family: 'Ownglyph_meetme-Rg';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 * {
   box-sizing: border-box;
 }
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-  font-size: 16px;
+  font-family: Ownglyph_meetme-Rg, Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 18px;
   line-height: 24px;
   font-weight: 400;
 
@@ -47,4 +54,8 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+button {
+  font-family: Ownglyph_meetme-Rg, Inter, Avenir, Helvetica, Arial, sans-serif;
 }

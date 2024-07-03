@@ -2,7 +2,6 @@ import { createBrowserRouter } from 'react-router-dom'
 
 import Root from '../pages/Root'
 import Home from '../pages/Home'
-import Authentication from '../pages/Authentication'
 import EventsRoot from '../pages/EventsRoot'
 import Events, { loader as eventsLoader } from '../pages/Events'
 import EventDetail, {
@@ -12,6 +11,8 @@ import NewEvent from '../pages/NewEvent'
 import EditEvent from '../pages/EditEvent'
 import { action as manipulateEventAction } from '../components/EventForm'
 import Newsletter, { action as newsletterAction } from '../pages/Newsletter'
+import Authentication, { action as authAction } from '../pages/Authentication'
+import { action as logoutAction } from '../pages/Logout'
 import Error from '../pages/Error'
 
 const router = createBrowserRouter([
@@ -23,10 +24,6 @@ const router = createBrowserRouter([
       {
         index: true,  // '/'와 같음
         element: <Home />,
-      },
-      {
-        path: 'auth',
-        element: <Authentication />
       },
       {
         path: 'events',  // '/'와 같음
@@ -66,6 +63,15 @@ const router = createBrowserRouter([
         element: <Newsletter />,
         action: newsletterAction,
       },
+      {
+        path: 'auth',
+        element: <Authentication />,
+        action: authAction,
+      },
+      {
+        path: 'logout',
+        action: logoutAction,
+      }
     ],
   },
 ])

@@ -1,5 +1,7 @@
 import { Suspense } from 'react'
 import { useRouteLoaderData, json, redirect, defer, Await } from 'react-router-dom'
+
+import { getAuthToken } from '../util/auth'
 import EventItem from '../components/EventItem'
 import EventsList from '../components/EventsList'
 
@@ -62,8 +64,13 @@ const loadEvents = async () => {
 /* 이벤트 삭제 */
 export const action = async ({params, request}) => {
   const eventId = params.eventId
+
+  const token = getAuthToken()
   const response = await fetch('http://localhost:8080/events/' + eventId, {
-    method: request.method
+    method: request.method,
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
   })
 
   if (!response.ok) {
