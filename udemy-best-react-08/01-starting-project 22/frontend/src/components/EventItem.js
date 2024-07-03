@@ -18,7 +18,7 @@ const EventItem = ({ event }) => {
       <img src={event.image} alt={event.title} />
       <h1>{event.title}</h1>
       <time>{event.date}</time>
-      <p>{event.description}</p>
+      <p className="event-description">{event.description}</p>
       {token &&
         <menu className={classes.actions}>
           <Link to='edit'>Edit</Link>

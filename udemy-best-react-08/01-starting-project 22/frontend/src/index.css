@@ -50,6 +50,14 @@ body {
   margin: 0;
 }
 
+.home-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 ul {
   list-style: none;
   margin: 0;
@@ -58,4 +66,8 @@ ul {
 
 button {
   font-family: Ownglyph_meetme-Rg, Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.event-description {
+  white-space: pre;
 }

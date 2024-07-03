@@ -43,9 +43,12 @@ export const action = async ({request}) => {
 
   const resData = await response.json()
   const token = resData.token
+  const expiration = new Date()
+  expiration.setHours(expiration.getHours() + 1)  // 토큰 만료시간
 
   // 토큰 저장
   localStorage.setItem('token', token)
+  localStorage.setItem('expiration', expiration.toISOString())
 
   return redirect('/')
 }
